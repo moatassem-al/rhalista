@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>المالديف</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f1f5f9;
+      color: #1e2a38;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 0; right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    header .overlay {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    header .welcome-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      white-space: nowrap;
+      border-right: 2px solid #fff;
+      overflow: hidden;
+      animation: typing 5s steps(40, end) infinite, blink 0.7s step-end infinite;
+    }
+    @keyframes typing {
+      0% { width: 0 }
+      50% { width: 100% }
+      100% { width: 0 }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #eee;
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .about-section, .card-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .about-section h2, .card-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .about-section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      width: 280px;
+      height: 340px;
+      perspective: 1000px;
+    }
+    .card-inner {
+      width: 100%; height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%; height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .card-front img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+    }
+    .card-front h3 {
+      margin: 20px 0;
+    }
+    .card-back {
+      background-color: #1e2a38;
+      color: white;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+    }
+    .card-back a {
+      display: inline-block;
+      margin: 10px 5px;
+      color: white;
+      background: #00aaff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .ticket-table {
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      text-align: center;
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 50px auto;
+      backdrop-filter: blur(8px);
+    }
+    .ticket-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .ticket-table thead th {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px;
+    }
+    .ticket-table tbody td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .book-button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .book-now-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #00c9e0;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 201, 224, 0.3);
+    }
+
+    .site-footer {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      margin-top: 40px;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <video autoplay muted loop>
+    <source src="videos/maldives.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <a href="destinations.html" class="back-btn">🔙 رجوع</a>
+  <div class="welcome-text">مرحبًا بكم في رحلة إلى المالديف</div>
+</header>
+
+<section class="about-section">
+  <h2>عن المالديف</h2>
+  <p>
+    المالديف، جنة استوائية في قلب المحيط الهندي، تشتهر بشواطئها البيضاء ومياهها الفيروزية.
+    استمتع بالإقامة في الفلل فوق الماء، واستكشاف الشعاب المرجانية، وتجربة الهدوء والجمال الطبيعي.
+  </p>
+</section>
+
+<section class="card-section">
+  <h2>جولات مقترحة</h2>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="img/morgan.jpg" alt="Snorkeling">
+          <h3>الغطس في الشعاب المرجانية</h3>
+        </div>
+        <div class="card-back">
+          <p>اكتشف أعماق البحر وشاهد أجمل الشعاب المرجانية.</p>
+          <a href="https://youtu.be/JUyddB6nLtY?si=PfPhPOo0dtiaCUtE">🎥 يوتيوب</a>
+          <a href="#">📍 خريطة</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="img/montaga.jpg" alt="Resort Stay">
+          <h3>الإقامة في منتجع فاخر</h3>
+        </div>
+        <div class="card-back">
+          <p>استرخ في فيلا خاصة فوق المياه الصافية.</p>
+          <a href="https://youtu.be/8H6EKcnL6e0?si=Ky_lKHP5jPhRUrsw">🎥 يوتيوب</a>
+          <a href="#">📍 خريطة</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="img/gorob.jpg" alt="Sunset">
+          <h3>رحلة الغروب</h3>
+        </div>
+        <div class="card-back">
+          <p>استمتع بغروب الشمس من على متن قارب خاص.</p>
+          <a href="https://youtu.be/SCQauw5VVDo?si=3Rq20jusoi8ouwLX">🎥 يوتيوب</a>
+          <a href="#">📍 خريطة</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ticket-table">
+  <h2>أسعار التذاكر إلى المالديف</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>المطار المغادر</th>
+        <th>المطار المستقبِل</th>
+        <th>وقت الرحلة</th>
+        <th>شركة الطيران</th>
+        <th>السعر (د.ل)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>مطار الكويت</td>
+        <td>مطار ماليه</td>
+        <td>2025-08-10 / 09:00</td>
+        <td>قطر للطيران</td>
+        <td>2100</td>
+      </tr>
+      <tr>
+        <td>مطار طرابلس</td>
+        <td>مطار ماليه</td>
+        <td>2025-08-12 / 05:00</td>
+        <td>تركيش إيرلاينز</td>
+        <td>2500</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="book-button-container">
+  <a href="contact.html" class="book-now-btn" target="_blank">احجز الآن</a>
+</div>
+
+<footer class="site-footer">
+  <p>© 2025 Rahalista. جميع الحقوق محفوظة.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>باريس</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f1f5f9;
+      color: #1e2a38;
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 0; right: 0;
+      min-width: 100%; min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    header .overlay {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+    header .welcome-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      white-space: nowrap;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: #eee;
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .about-section {
+      padding: 60px 20px;
+      background: #f1f5f9;
+      text-align: center;
+    }
+    .about-section h2 { font-size: 30px; margin-bottom: 20px; }
+    .about-section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .card-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .card-section h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+      color: #1e2a38;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      width: 280px;
+      height: 340px;
+      perspective: 1000px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%; height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%; height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background: #fff;
+      overflow: hidden;
+    }
+    .card-front img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-front h3 {
+      margin: 20px 0;
+      font-size: 20px;
+    }
+    .card-back {
+      background-color: #1e2a38;
+      color: #fff;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+    }
+    .card-back a {
+      display: inline-block;
+      margin: 10px 5px;
+      color: #fff;
+      background: #00aaff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .ticket-table {
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      text-align: center;
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 50px auto;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .ticket-table h2 {
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+    .ticket-table table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .ticket-table thead th {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px;
+    }
+    .ticket-table tbody td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .ticket-table tbody tr:hover {
+      background-color: rgba(0, 188, 212, 0.2);
+    }
+
+    .book-button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .book-now-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #00c9e0;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      }
+    .book-now-btn:hover {
+      background: #00a6c4;
+      transform: scale(1.05);
+    }
+
+    .site-footer {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      font-family: 'Cairo', sans-serif;
+      margin-top: 40px;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <video autoplay muted loop>
+    <source src="videos/paris.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+  <a href="destinations.html" class="back-btn">🔙 رجوع</a>
+  <div class="welcome-text" id="typewriter">مرحبًا بكم في رحلة إلى مدينة باريس</div>
+</header>
+
+<section class="about-section">
+  <h2>عن باريس</h2>
+  <p>
+    باريس، عاصمة الأناقة والفن، تضم برج إيفل، متحف اللوفر، وأجواء رومانسية مدهشة.
+    تتميز بشوارعها الواسعة والمقاهي الجميلة. إنها الوجهة المثالية للثقافة والتسوق.
+  </p>
+</section>
+
+<section class="card-section">
+  <h2>جولات مقترحة</h2>
+  <div class="card-container">
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="img/paaaris.jpg" alt="برج إيفل">
+          <h3>زيارة برج إيفل</h3>
+        </div>
+        <div class="card-back">
+          <p>اصعد لأعلى برج إيفل واستمتع بمنظر بانورامي لباريس.</p>
+          <a href="https://youtu.be/bds3lu5Lfow?si=Go7DD8AE36yzEhiP" target="_blank">🎥 يوتيوب</a>
+          <a href="https://maps.app.goo.gl/x7SjMGBNLXVSgx6c6" target="_blank">📍 خريطة</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="img/lofer.jpg" alt="متحف اللوفر">
+          <h3>متحف اللوفر</h3>
+        </div>
+        <div class="card-back">
+          <p>شاهد الموناليزا واكتشف أكبر مجموعة فنية بالعالم.</p>
+          <a href="https://youtu.be/jv0J_BSfoag?si=WJPFN21N2FTEAgTO" target="_blank">🎥 يوتيوب</a>
+          <a href="https://maps.app.goo.gl/tqTni41s8w6c7vy98" target="_blank">📍 خريطة</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="img/seen.jpg" alt="نهر السين">
+          <h3>نهر السين</h3>
+        </div>
+        <div class="card-back">
+          <p>جولة بالقارب على نهر السين تمر بأشهر معالم باريس.</p>
+          <a href="https://youtu.be/2ddmrh4kYJM?si=fsC90dIofAJ1X_cs" target="_blank">🎥 يوتيوب</a>
+          <a href="https://maps.app.goo.gl/waKwDVHqL6ysWVZt7" target="_blank">📍 خريطة</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="ticket-table">
+  <h2>أسعار التذاكر إلى باريس</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>المطار المغادر</th>
+        <th>المطار المستقبِل</th>
+        <th>وقت الرحلة</th>
+        <th>شركة الطيران</th>
+        <th>السعر (د.ل)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>مطار طرابلس</td>
+        <td>مطار باريس</td>
+        <td>2025-07-11 / 13:45</td>
+        <td>ليبيا للطيران</td>
+        <td>1350</td>
+      </tr>
+      <tr>
+        <td>مطار تونس قرطاج</td>
+        <td>مطار باريس</td>
+        <td>2025-07-13 / 08:00</td>
+        <td>TunisAir</td>
+        <td>1200</td>
+      </tr>
+      <tr>
+        <td>مطار القاهرة</td>
+        <td>مطار باريس</td>
+        <td>2025-07-15 / 06:00</td>
+        <td>EgyptAir</td>
+        <td>1450</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="book-button-container">
+  <a href="contact.html" class="book-now-btn">احجز الآن</a>
+</div>
+
+<footer class="site-footer">
+  <p>© 2025 Rahalista. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+  const text = "مرحبًا بكم في رحلة إلى مدينة باريس";
+  let index = 0;
+  const el = document.getElementById("typewriter");
+
+  function type() {
+    el.innerText = text.slice(0, index);
+    index++;
+    if (index <= text.length) {
+      setTimeout(type, 100);
+    } else {
+      setTimeout(() => {
+        index = 0;
+        type();
+      }, 3000);
+    }
+  }
+  type();
+</script>
+
+</body>
+</html>
